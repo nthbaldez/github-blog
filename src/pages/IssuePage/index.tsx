@@ -1,3 +1,12 @@
+import CardIssue from '../../components/CardIssue'
+import { SectionContainer, SectionContent } from './styles'
+
 export default function IssuePage() {
-  return <h1>Issue Page</h1>
+  return (
+    <SectionContainer>
+      <SectionContent>
+        <CardIssue />
+      </SectionContent>
+    </SectionContainer>
+  )
 }
