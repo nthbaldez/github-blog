@@ -3,12 +3,23 @@ import { FaGithub } from 'react-icons/fa'
 import { FaBuilding } from 'react-icons/fa6'
 import { HiUsers } from 'react-icons/hi'
 import { ArrowSquareOut } from 'phosphor-react'
-import ProfileImg from './../../assets/perfil.jpg'
 
-export default function CardProfile() {
+interface UserDataProps {
+  login: string
+  avatarUrl: string
+  followers: number
+  company: string
+}
+
+export default function CardProfile({
+  login,
+  avatarUrl,
+  followers,
+  company,
+}: UserDataProps) {
   return (
     <CardProfileContainer>
-      <img src={ProfileImg} alt="" />
+      <img src={avatarUrl} alt="" />
 
       <ProfileInfo>
         <header>
@@ -28,16 +39,17 @@ export default function CardProfile() {
         <footer>
           <a href="https://github.com/nthbaldez">
             <FaGithub color="#3A536B" size={18} />
-            <span>nthbaldez</span>
+            <span>{login}</span>
           </a>
 
           <span>
             <FaBuilding color="#3A536B" size={18} />
-            Cask LATAM
+            {company}
           </span>
 
           <span>
-            <HiUsers color="#3A536B" size={18} />4 seguidores
+            <HiUsers color="#3A536B" size={18} />
+            {followers} seguidores
           </span>
         </footer>
       </ProfileInfo>
