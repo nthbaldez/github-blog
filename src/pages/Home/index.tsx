@@ -1,3 +1,10 @@
+import CardProfile from '../../components/CardProfile'
+import { SectionContainer } from './styles'
+
 export default function Home() {
-  return <h1>Home</h1>
+  return (
+    <SectionContainer>
+      <CardProfile />
+    </SectionContainer>
+  )
 }
