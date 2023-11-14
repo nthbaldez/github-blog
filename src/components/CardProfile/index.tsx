@@ -1,4 +1,8 @@
 import { CardProfileContainer, ProfileInfo } from './styles'
+import { FaGithub } from 'react-icons/fa'
+import { FaBuilding } from 'react-icons/fa6'
+import { HiUsers } from 'react-icons/hi'
+import { ArrowSquareOut } from 'phosphor-react'
 import ProfileImg from './../../assets/perfil.jpg'
 
 export default function CardProfile() {
@@ -9,7 +13,10 @@ export default function CardProfile() {
       <ProfileInfo>
         <header>
           <h2>Nathan Baldez</h2>
-          <a href="https://github.com/nthbaldez">GITHUB</a>
+          <a href="https://github.com/nthbaldez">
+            GITHUB
+            <ArrowSquareOut size={20} weight="fill" />
+          </a>
         </header>
 
         <p>
@@ -19,9 +26,19 @@ export default function CardProfile() {
         </p>
 
         <footer>
-          <a href="https://github.com/nthbaldez">nthbaldez</a>
-          <span>Cask LATAM</span>
-          <span>4 seguidores</span>
+          <a href="https://github.com/nthbaldez">
+            <FaGithub color="#3A536B" size={18} />
+            <span>nthbaldez</span>
+          </a>
+
+          <span>
+            <FaBuilding color="#3A536B" size={18} />
+            Cask LATAM
+          </span>
+
+          <span>
+            <HiUsers color="#3A536B" size={18} />4 seguidores
+          </span>
         </footer>
       </ProfileInfo>
     </CardProfileContainer>
