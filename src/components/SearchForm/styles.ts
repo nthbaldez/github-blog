@@ -9,7 +9,7 @@ export const SearchFormContainer = styled.div`
 
   div {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     justify-content: space-between;
     align-items: center;
 

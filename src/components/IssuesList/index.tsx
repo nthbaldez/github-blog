@@ -1,74 +1,27 @@
+import { formatDescription } from '../../utils/formatDescription'
 import { IssueCard, IssuesContainerList } from './styles'
 
-export default function IssuesList() {
+interface IssuesProps {
+  title: string
+  body: string
+}
+
+interface IssuesListProps {
+  issues: IssuesProps[]
+}
+
+export default function IssuesList({ issues }: IssuesListProps) {
   return (
     <IssuesContainerList>
-      <IssueCard>
-        <header>
-          <h3>JavaScript data types and data structures</h3>
-          <span>Há 3 dias</span>
-        </header>
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...{' '}
-        </p>
-      </IssueCard>
-      <IssueCard>
-        <header>
-          <h3>JavaScript data types and data structures</h3>
-          <span>Há 3 dias</span>
-        </header>
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...{' '}
-        </p>
-      </IssueCard>
-      <IssueCard>
-        <header>
-          <h3>JavaScript data types and data structures</h3>
-          <span>Há 3 dias</span>
-        </header>
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...{' '}
-        </p>
-      </IssueCard>
-      <IssueCard>
-        <header>
-          <h3>JavaScript data types and data structures</h3>
-          <span>Há 3 dias</span>
-        </header>
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...{' '}
-        </p>
-      </IssueCard>
-      <IssueCard>
-        <header>
-          <h3>JavaScript data types and data structures</h3>
-          <span>Há 3 dias</span>
-        </header>
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...{' '}
-        </p>
-      </IssueCard>
-      <IssueCard>
-        <header>
-          <h3>JavaScript data types and data structures</h3>
-          <span>Há 3 dias</span>
-        </header>
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in...{' '}
-        </p>
-      </IssueCard>
+      {issues.map((issue) => (
+        <IssueCard key={issue.title}>
+          <header>
+            <h3>{issue.title}</h3>
+            <span>Há 3 dias</span>
+          </header>
+          <p>{formatDescription(issue.body)}</p>
+        </IssueCard>
+      ))}
     </IssuesContainerList>
   )
 }

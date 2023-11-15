@@ -9,6 +9,8 @@ interface UserDataProps {
   avatarUrl: string
   followers: number
   company: string
+  name: string
+  htmlUrl: string
 }
 
 export default function CardProfile({
@@ -16,6 +18,8 @@ export default function CardProfile({
   avatarUrl,
   followers,
   company,
+  name,
+  htmlUrl,
 }: UserDataProps) {
   return (
     <CardProfileContainer>
@@ -23,8 +27,8 @@ export default function CardProfile({
 
       <ProfileInfo>
         <header>
-          <h2>Nathan Baldez</h2>
-          <a href="https://github.com/nthbaldez">
+          <h2>{name}</h2>
+          <a href={htmlUrl}>
             GITHUB
             <ArrowSquareOut size={20} weight="fill" />
           </a>
