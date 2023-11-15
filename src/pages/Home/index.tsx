@@ -66,7 +66,7 @@ export default function Home() {
     <SectionContainer>
       <SectionContent>
         <CardProfile {...userData} />
-        <SearchForm />
+        <SearchForm quantityOfArticles={issues.length} />
         <IssuesList issues={issues} />
       </SectionContent>
     </SectionContainer>
