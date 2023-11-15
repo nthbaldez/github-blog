@@ -15,14 +15,16 @@ interface UserDataProps {
   htmlUrl: string
 }
 
-interface IssuesProps {
+interface IssuesPromiseProps {
   title: string
   body: string
+  id: number
+  created_at: Date
 }
 
 export default function Home() {
   const [userData, setUserData] = useState({} as UserDataProps)
-  const [issues, setIssues] = useState<IssuesProps[]>([])
+  const [issues, setIssues] = useState<IssuesPromiseProps[]>([])
 
   useEffect(() => {
     async function getUserData() {
@@ -37,18 +39,20 @@ export default function Home() {
         htmlUrl: data.html_url,
       })
     }
-
     getUserData()
   }, [])
 
   useEffect(() => {
     async function getIssuesData() {
       const data = await getIssues()
+      console.log(data)
 
-      data?.items.forEach((item: IssuesProps) => {
+      data?.items.forEach((item: IssuesPromiseProps) => {
         const issue = {
           title: item.title,
           body: item.body,
+          id: item.id,
+          created_at: item.created_at,
         }
 
         setIssues([...issues, issue])
