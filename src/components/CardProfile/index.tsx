@@ -28,7 +28,7 @@ export default function CardProfile({
       <ProfileInfo>
         <header>
           <h2>{name}</h2>
-          <a href={htmlUrl}>
+          <a href={htmlUrl} target="_blank" rel="noreferrer noopener">
             GITHUB
             <ArrowSquareOut size={20} weight="fill" />
           </a>
