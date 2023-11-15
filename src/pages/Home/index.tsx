@@ -20,6 +20,7 @@ interface IssuesPromiseProps {
   body: string
   id: number
   created_at: Date
+  number: number
 }
 
 export default function Home() {
@@ -53,6 +54,7 @@ export default function Home() {
           body: item.body,
           id: item.id,
           created_at: item.created_at,
+          number: item.number,
         }
 
         setIssues([...issues, issue])

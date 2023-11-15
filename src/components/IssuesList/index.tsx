@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { formatDescription } from '../../utils/formatDescription'
 import { getDate } from '../../utils/getDate'
 import { IssueCard, IssuesContainerList } from './styles'
@@ -8,6 +8,7 @@ interface IssuesProps {
   body: string
   id: number
   created_at: Date
+  number: number
 }
 
 interface IssuesListProps {
@@ -18,8 +19,8 @@ export default function IssuesList({ issues }: IssuesListProps) {
   return (
     <IssuesContainerList>
       {issues.map((issue) => (
-        <NavLink
-          to="/issue"
+        <Link
+          to={issue.number.toString()}
           key={issue.id}
           target="_blank"
           rel="noreferrer noopener"
@@ -31,7 +32,7 @@ export default function IssuesList({ issues }: IssuesListProps) {
             </header>
             <p>{formatDescription(issue.body)}</p>
           </IssueCard>
-        </NavLink>
+        </Link>
       ))}
     </IssuesContainerList>
   )
