@@ -23,8 +23,6 @@ export default function SearchForm({ quantityOfArticles }: SearchFormProps) {
 
   async function handleSearchIssues(data: SearchFormInput) {
     await fetchIssues(data.query)
-
-    console.log(data)
   }
 
   return (

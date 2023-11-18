@@ -7,7 +7,6 @@ import { IssuesContext } from '../../contexts/IssuesContext'
 
 export default function IssuesList() {
   const { issues } = useContext(IssuesContext)
-  console.log(issues)
   return (
     <IssuesContainerList>
       {issues.map((issue) => (

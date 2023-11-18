@@ -16,10 +16,9 @@ export default function IssueArticle({ id }: IssueArticleProps) {
       const data = await getIssue(+id)
       setArticle(data?.data.body)
       setTitle(data?.data.title)
-      console.log(data)
     }
     getIssueData()
-  }, [])
+  }, [id])
 
   return (
     <IssueArticleContainer>
