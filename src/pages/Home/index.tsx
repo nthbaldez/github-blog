@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import CardProfile from '../../components/CardProfile'
 import IssuesList from '../../components/IssuesList'
 import SearchForm from '../../components/SearchForm'
 import { SectionContainer, SectionContent } from './styles'
-import { getRepos } from '../../services/get-repos'
-import { getIssues } from '../../services/get-issues'
+import { getUser } from '../../services/get-user'
+import { IssuesContext } from '../../contexts/IssuesContext'
 
 interface UserDataProps {
   login: string
@@ -15,21 +15,14 @@ interface UserDataProps {
   htmlUrl: string
 }
 
-interface IssuesPromiseProps {
-  title: string
-  body: string
-  id: number
-  created_at: Date
-  number: number
-}
-
 export default function Home() {
   const [userData, setUserData] = useState({} as UserDataProps)
-  const [issues, setIssues] = useState<IssuesPromiseProps[]>([])
+
+  const { issues } = useContext(IssuesContext)
 
   useEffect(() => {
     async function getUserData() {
-      const data = await getRepos()
+      const data = await getUser()
 
       setUserData({
         login: data.login,
@@ -43,33 +36,12 @@ export default function Home() {
     getUserData()
   }, [])
 
-  useEffect(() => {
-    async function getIssuesData() {
-      const data = await getIssues()
-      console.log(data)
-
-      data?.items.forEach((item: IssuesPromiseProps) => {
-        const issue = {
-          title: item.title,
-          body: item.body,
-          id: item.id,
-          created_at: item.created_at,
-          number: item.number,
-        }
-
-        setIssues([...issues, issue])
-      })
-    }
-
-    getIssuesData()
-  }, [])
-
   return (
     <SectionContainer>
       <SectionContent>
         <CardProfile {...userData} />
         <SearchForm quantityOfArticles={issues.length} />
-        <IssuesList issues={issues} />
+        <IssuesList />
       </SectionContent>
     </SectionContainer>
   )

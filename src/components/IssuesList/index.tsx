@@ -2,20 +2,12 @@ import { Link } from 'react-router-dom'
 import { formatDescription } from '../../utils/formatDescription'
 import { getDate } from '../../utils/getDate'
 import { IssueCard, IssuesContainerList } from './styles'
+import { useContext } from 'react'
+import { IssuesContext } from '../../contexts/IssuesContext'
 
-interface IssuesProps {
-  title: string
-  body: string
-  id: number
-  created_at: Date
-  number: number
-}
-
-interface IssuesListProps {
-  issues: IssuesProps[]
-}
-
-export default function IssuesList({ issues }: IssuesListProps) {
+export default function IssuesList() {
+  const { issues } = useContext(IssuesContext)
+  console.log(issues)
   return (
     <IssuesContainerList>
       {issues.map((issue) => (

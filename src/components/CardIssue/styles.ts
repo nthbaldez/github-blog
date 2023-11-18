@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CardIssueContainer = styled.div`
   width: 864px;
-  height: 10.5rem;
+  min-height: 10.5rem;
   border-radius: 10px;
 
   margin: 0 auto;

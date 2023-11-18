@@ -8,5 +8,5 @@ export function getDate(date: Date) {
     return 'Há algumas horas'
   }
 
-  return Math.floor(daysDifference)
+  return `Há ${Math.floor(daysDifference)} dias`
 }

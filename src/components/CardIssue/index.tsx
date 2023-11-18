@@ -2,7 +2,11 @@ import { NavLink } from 'react-router-dom'
 import { CardIssueContainer } from './styles'
 import { FaCalendarDay, FaComment, FaGithub } from 'react-icons/fa'
 
-export default function CardIssue() {
+interface CardIssueProps {
+  title: string
+}
+
+export default function CardIssue({ title }: CardIssueProps) {
   return (
     <CardIssueContainer>
       <header>
@@ -10,7 +14,7 @@ export default function CardIssue() {
         <NavLink to="https://github.com/nthbaldez">Ver no Github</NavLink>
       </header>
 
-      <h2>JavaScript data types and data structures</h2>
+      <h2>{title}</h2>
 
       <footer>
         <a href="https://github.com/nthbaldez">
